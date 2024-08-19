@@ -54,12 +54,12 @@ const CryptoDetails = () => {
       onClick={close}
     >
       <div
-        className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
+        className=" xl:w-[65%] lg:w-[75%] md:w-[100%] sm:w-[75%] w-[90%] lg:h-[80%] md:h-[85%] h-[90vh]  scrollbar-thin md:overflow-hidden scrollbar-thumb-gray-100 scrollbar-track-gray-200 overflow-x-hidden  bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         onClick={(e) => e.stopPropagation()}
       >
         {data ? (
-          <div className="flex items-center justify-between h-full w-full p-4">
-            <div className="flex flex-col w-[45%] h-full pr-2 ">
+          <div className="flex md:flex-row flex-col items-center justify-between lg:h-full h-auto w-full p-4 relative">
+            <div className="flex flex-col  md:w-[45%] w-full h-full pr-2 ">
               <div className="flex w-full items-center">
                 <img
                   className="w-[3rem] h-[3rem] mx-1.5"
@@ -67,12 +67,7 @@ const CryptoDetails = () => {
                   alt={data.id}
                 />
                 <h1 className="text-xl capitalize font-medium">{data.name}</h1>
-                <span
-                  className="text-sm
-        py-0.5 px-2.5 ml-2 bg-cyan text-cyan bg-opacity-25
-        rounded uppercase
-        "
-                >
+                <span className="text-sm py-0.5 px-2.5 ml-2 bg-cyan text-cyan bg-opacity-25 rounded uppercase">
                   {data.symbol}
                 </span>
               </div>
@@ -84,8 +79,7 @@ const CryptoDetails = () => {
                       Price
                     </span>
                     <div
-                      className={`text-sm px-1 ml-2 font-medium flex items-center
-          rounded uppercase bg-opacity-25
+                      className={`text-sm px-1 ml-2 font-medium flex items-center rounded uppercase bg-opacity-25
           ${
             data.market_data.price_change_percentage_24h > 0
               ? "bg-green text-green"
@@ -128,7 +122,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <div className="flex flex-col">
                   <span className="text-sm capitalize text-gray-100">
                     Market Cap
@@ -170,7 +164,7 @@ const CryptoDetails = () => {
                 </h2>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <HighLowIndicator
                   currentPrice={data.market_data.current_price[currency]}
                   high={data.market_data.high_24h[currency]}
@@ -178,7 +172,7 @@ const CryptoDetails = () => {
                 />
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <div className="flex flex-col">
                   <span className="text-sm capitalize text-gray-100">
                     Low 24H
@@ -205,7 +199,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <div className="flex flex-col">
                   <span className="text-sm capitalize text-gray-100">
                     max supply
@@ -232,7 +226,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <div className="flex flex-col">
                   <a
                     target={"_blank"}
@@ -324,10 +318,10 @@ const CryptoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-[55%] h-full pl-3 ">
+            <div className="flex flex-col md:w-[55%] w-full h-[60vh] md:pl-4 pl-0 md:mt-0 mt-2 ">
               <Chart id={data.id} />
 
-              <div className="flex flex-col mt-4">
+              <div className="flex flex-col mt-4 md:mt-10">
                 <h3 className="text-white py-1">
                   <span className="text-gray-100 capitalize mr-1">
                     market cap rank:{" "}
