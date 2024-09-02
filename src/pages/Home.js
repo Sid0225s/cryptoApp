@@ -15,7 +15,7 @@ const Home = () => {
             className="w-full h-full flex flex-col first-letter:
                content-center items-center relative text-white font-nunito "
           >
-            <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
+            <div className="bg-gray-300 fixed w-screen h-screen -z-10" />
             <Logo />
             <Navigation />
 

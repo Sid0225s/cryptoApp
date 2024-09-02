@@ -56,19 +56,19 @@ const Saved = () => {
 
   return (
     <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative">
-      <div className="w-full min-h-[60vh] py-8  border border-gray-100 rounded">
+      <div className="flex flex-col mt-9 border border-gray-100 rounded ">
         {savedData ? (
           <table className="w-full table-auto">
             <thead className="capitalize text-base text-gray-100 font-medium border-b border-gray-100 ">
               <tr>
-                <th className="py-1 ">asset</th>
-                <th className="py-1">name</th>
+                <th className="py-1">asset</th>
+                <th className="py-1 xs:table-cell hidden">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
-                <th className="py-1">1H</th>
-                <th className="py-1">24H</th>
-                <th className="py-1">7D</th>
+                <th className="py-1 md:table-cell hidden">total volume</th>
+                <th className="py-1 sm:table-cell hidden">market cap change</th>
+                <th className="py-1 lg:table-cell hidden">1H</th>
+                <th className="py-1 lg:table-cell hidden">24H</th>
+                <th className="py-1 lg:table-cell hidden">7D</th>
               </tr>
             </thead>
             <tbody>
@@ -77,7 +77,7 @@ const Saved = () => {
                   return (
                     <tr
                       key={data.id}
-                      className="text-center text-base border-b border-gray-100  hover:bg-gray-200"
+                      className="text-center text-base border-b border-gray-100  hover:bg-gray-200 last:border-b-0"
                     >
                       <td className="py-4 uppercase flex items-center">
                         <SaveBtn data={data} />
@@ -93,8 +93,8 @@ const Saved = () => {
                           </Link>
                         </span>
                       </td>
-                      <td className="py-4 cursor-pointer">
-                        <Link to={`${data.id}`} className="cursor-pointer">
+                      <td className="py-4 cursor-pointer xs:table-cell hidden">
+                        <Link to={`${data.id}`} className="cursor-pointer ">
                           {data.name}
                         </Link>
                       </td>
@@ -106,12 +106,14 @@ const Saved = () => {
                           currency: currency,
                         }).format(data.current_price)}
                       </td>
-                      <td className="py-4">{data.total_volume}</td>
+                      <td className="py-4 md:table-cell hidden">
+                        {data.total_volume}
+                      </td>
                       <td
                         className={
                           data.market_cap_change_percentage_24h < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
+                            ? "py-4 text-red sm:table-cell hidden"
+                            : "py-4 text-green sm:table-cell hidden"
                         }
                       >
                         {Number(data.market_cap_change_percentage_24h).toFixed(
@@ -122,8 +124,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_1h_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
+                            ? "py-4 text-red lg:table-cell hidden"
+                            : "py-4 text-green lg:table-cell hidden"
                         }
                       >
                         {Number(
@@ -134,8 +136,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_24h_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
+                            ? "py-4 text-red lg:table-cell hidden"
+                            : "py-4 text-green lg:table-cell hidden"
                         }
                       >
                         {Number(
@@ -146,8 +148,8 @@ const Saved = () => {
                       <td
                         className={
                           data.price_change_percentage_7d_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
+                            ? "py-4 text-red lg:table-cell hidden"
+                            : "py-4 text-green lg:table-cell hidden"
                         }
                       >
                         {Number(
